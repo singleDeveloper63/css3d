@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/style.css">
+</head>
+<body>
+    <div class="controles">
+        <div class="cardControls">
+            <div>
+                perspective : <input type="range" value="0" max="1000" min="10" id="pers"> value : <span id="pers"></span>
+            </div>
+            <h4>Card controls</h4>
+            <div>
+                rotateX : <input type="range" value="0" max="360" min="-360" id="rotateX"> value : <span id="rotateX"></span>
+            </div>
+            <div>
+                rotateY : <input type="range" value="0" max="360" min="-360" id="rotateY"> value :  <span id="rotateY"></span>
+            </div>
+            <div>
+                rotateZ : <input type="range" value="0" max="360" min="-360" id="rotateZ"> value : <span id="rotateZ"></span>
+            </div>
+        </div>
+        <div class="textControls">
+            <h4>Text controls</h4>
+            <div>
+                rotateX : <input type="range" value="0" max="360" min="-360" id="rotateX"> value : <span id="rotateX"></span>
+            </div>
+            <div>
+                rotateY : <input type="range" value="0" max="360" min="-360" id="rotateY"> value :  <span id="rotateY"></span>
+            </div>
+            <div>
+                rotateZ : <input type="range" value="0" max="360" min="-360" id="rotateZ"> value : <span id="rotateZ"></span>
+            </div>
+            <div>
+                translateZ : <input type="range" value="0" max="1000" min="-1000" id="translateZ"> value : <span id="translateZ"></span>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="card">
+        </div>
+        <h1>Lorem ipsum, dolor sit amet consectetur adipisicing elit. </h1>
+    </div>
+    <script>
+        document.querySelectorAll("div.cardControls input:not(#pers)").forEach( input =>{
+            input.addEventListener("input", e =>{
+                document.querySelector(`span#${e.target.id}`).textContent = e.target.value
+                const X = document.querySelector("div.cardControls #rotateX").value;
+                const Y = document.querySelector("div.cardControls #rotateY").value;
+                const Z = document.querySelector("div.cardControls #rotateZ").value;
+                document.querySelector(".card").style.transform = `rotateX(${X}deg) rotateY(${Y}deg) rotateZ(${Z}deg)`
+            })
+        })
+
+        document.querySelector("#pers").addEventListener("input" , e =>{
+            document.querySelector(".content").style.transform = `perspective(${e.target.value}px)`;
+            document.querySelector("span#pers").textContent = e.target.value
+        })
+
+        document.querySelectorAll("div.textControls input").forEach( input =>{
+            input.addEventListener("input", e =>{
+                document.querySelector(`div.textControls span#${e.target.id}`).textContent = e.target.value
+                const X = document.querySelector("div.textControls #rotateX").value;
+                const Y = document.querySelector("div.textControls #rotateY").value;
+                const Z = document.querySelector("div.textControls #rotateZ").value;
+                const tZ = document.querySelector("div.textControls #translateZ").value;
+                document.querySelector("h1").style.transform = `rotateX(${X}deg) rotateY(${Y}deg) rotateZ(${Z}deg) translateY(-50%) translateZ(${tZ}px)`
+            })
+        })
+    </script>
+</body>
+</html>

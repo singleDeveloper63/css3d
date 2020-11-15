@@ -1,0 +1,58 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.content{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    transform-style: preserve-3d;
+    position: fixed;
+    top: 0;
+    left: 0;
+    flex-direction: column;
+    transform: perspective(40px);
+}
+
+
+.card{
+    background: url(./city.jfif);
+    width: 400px;
+    height: 450px;
+    background-size: cover;
+    padding: 30px;
+    position: relative;
+    transform: rotateX(0deg) translateZ(-1px);
+    transition: .4s;
+    background-color: black;
+    backface-visibility: visible;
+}
+h1{
+    font-weight: 900;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    letter-spacing: 2px;
+    bottom: 20px;
+    word-spacing: 4px;
+    transform-style: preserve-3d;
+    transition: .4s;
+    position: absolute;
+    text-shadow: 0px 0px 1px black;
+    font-size: 40px;
+    z-index: 2;
+    top: 50%;
+    width: 300px;
+    transform: translateY(-50%);
+}
+
+.controles{
+    position: fixed;
+    background: turquoise;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    padding: 20px;
+}
